@@ -46,7 +46,7 @@ export default function TheNewHeader(){
                     </div>
                 </div>
 
-                <div className="header-main-area sticky">
+                <div className="header-main-area sticky" style={{"z-index":"9999!important"}}>
                     <div className="container">
                         <div className="row align-items-center position-relative">
 

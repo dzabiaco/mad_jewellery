@@ -1,8 +1,6 @@
-import { Html, Head, Main, NextScript } from "next/document";
-import Header from "@/app/components/Header";
-import HomeSection from "@/app/components/HomeSection";
+// import { Html, Head, Main, NextScript } from "next/document";
 import {Fragment} from "react";
-import {useTranslations} from "next-intl";
+// import {useTranslations} from "next-intl";
 import TheNewHeader from "@/app/components/TheNewHeader";
 import Footer from "@/app/components/Footer";
 import BlogSection from "@/app/components/BlogSection";

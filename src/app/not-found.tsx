@@ -1,5 +1,7 @@
 'use client'
 
+import Spinner from "@/app/components/Spinner/Spinner";
+
 export default function NotFound(){
     return (
         <html>

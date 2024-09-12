@@ -2,6 +2,7 @@
 import Link from "next/link";
 import {useEffect} from "react";
 import {useLocale} from "use-intl";
+import LocaleSwitcher from "@/app/components/LocaleSwitcher";
 
 
 export default function TheNewHeader(){
@@ -35,21 +36,22 @@ export default function TheNewHeader(){
                                         {/*        <li><a href="#">€ EURO</a></li>*/}
                                         {/*    </ul>*/}
                                         {/*</li>*/}
-                                        <li className="language" style={{zIndex: "9999!important"}}>
-                                            <img src="../../../static/images/icons/en.png" alt="flag"/> English
-                                                <i className="fa fa-angle-down"></i>
-                                                <ul className="dropdown-list">
-                                                    <li><a href="#">
-                                                        <img src="a../../../static/images/icons/en.png" alt="flag"/> english</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><img src="../../../static/images/icons/fr.png" alt="flag"/> french</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><img src="../../../static/images/icons/fr.png" alt="flag"/> french</a>
-                                                    </li>
-                                                </ul>
-                                        </li>
+                                        {/*<li className="language" style={{zIndex: "9999!important"}}>*/}
+                                        {/*    <img src="../../../static/images/icons/en.png" alt="flag"/> English*/}
+                                        {/*        <i className="fa fa-angle-down"></i>*/}
+                                        {/*        <ul className="dropdown-list">*/}
+                                        {/*            <li><a href="#">*/}
+                                        {/*                <img src="a../../../static/images/icons/en.png" alt="flag"/> english</a>*/}
+                                        {/*            </li>*/}
+                                        {/*            <li>*/}
+                                        {/*                <a href="#"><img src="../../../static/images/icons/fr.png" alt="flag"/> french</a>*/}
+                                        {/*            </li>*/}
+                                        {/*            <li>*/}
+                                        {/*                <a href="#"><img src="../../../static/images/icons/fr.png" alt="flag"/> french</a>*/}
+                                        {/*            </li>*/}
+                                        {/*        </ul>*/}
+                                        {/*</li>*/}
+                                        <LocaleSwitcher/>
                                     </ul>
                                 </div>
                             </div>
@@ -196,16 +198,16 @@ export default function TheNewHeader(){
                                         <Link href="/">Home</Link>
                                     </li>
                                     <li className="menu-item-has-children">
-                                        <a href="#">About us</a>
+                                        <Link href={getLocalePath(`/about`)}>About us</Link>
                                     </li>
                                     <li className="menu-item-has-children ">
-                                        <a href="#">shop</a>
+                                        <Link href={getLocalePath(`/shop`)}>shop</Link>
                                     </li>
                                     <li className="menu-item-has-children ">
-                                        <a href="#">Blog</a>
+                                        <Link href={getLocalePath(`/blog`)}>Blog</Link>
                                     </li>
                                     <li>
-                                        <a href="contact-us.html">Contact us</a>
+                                        <Link href={getLocalePath(`/contact-us`)}>Contact us</Link>
                                     </li>
                                 </ul>
                             </nav>

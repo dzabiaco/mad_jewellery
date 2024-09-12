@@ -19,7 +19,7 @@ Table of content
 16. compare
 17. login register
 18. about us
-19. contact us
+19. contact-us us
 20. banner
 21. modal
 22. sidebar
@@ -5818,7 +5818,7 @@ blockquote {
 }
 
 /*----- Google map area end -----*/
-/*------ contact form area start -------*/
+/*------ contact-us form area start -------*/
 .contact-area {
   margin-top: -4px;
 }
@@ -5854,8 +5854,8 @@ blockquote {
   height: 150px;
 }
 
-/*------ contact form area start -------*/
-/*------ contact info area start -------*/
+/*------ contact-us form area start -------*/
+/*------ contact-us info area start -------*/
 .contact-info {
   height: 100%;
 }
@@ -5927,7 +5927,7 @@ blockquote {
   }
 }
 
-/*------ contact info area end -------*/
+/*------ contact-us info area end -------*/
 /*----- footer area start -----*/
 .footer-top {
   background-color: #f7f7f7;

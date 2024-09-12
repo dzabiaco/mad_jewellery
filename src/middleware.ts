@@ -8,6 +8,7 @@ export default createMiddleware({
     defaultLocale: 'en'
 });
 
+
 export const config = {
     // Match only internationalized pathnames
     matcher: ['/', '/(ro|ru|en)/:path*']

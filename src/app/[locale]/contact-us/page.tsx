@@ -48,7 +48,7 @@ export default function ContactPage(){
                                             <div className="col-12">
                                                 <div className="contact2-textarea text-center">
                                                     <textarea placeholder="Message *" name="message"
-                                                              className="form-control2" required=""></textarea>
+                                                              className="form-control2" required></textarea>
                                                 </div>
                                                 <div className="contact-btn">
                                                     <button className="btn btn-sqr" type="submit">Send Message</button>

@@ -1,4 +1,4 @@
-// import { Html, Head, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript } from "next/document";
 import {Fragment} from "react";
 // import {useTranslations} from "next-intl";
 import TheNewHeader from "@/app/components/TheNewHeader";

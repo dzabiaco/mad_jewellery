@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import {NextIntlClientProvider, useMessages} from 'next-intl';
 import Script from "next/script";
+import {useEffect, useState} from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,7 +36,7 @@ export default function RootLayout({
           <link rel="stylesheet" href="../../../static/plugin/mad/css/vendor/font-awesome.min.css"/>
           <link rel="stylesheet" href="../../../static/plugin/mad/css/plugins/slick.min.css"/>
           <link rel="stylesheet" href="../../../static/plugin/mad/css/plugins/animate.css"/>
-          <link rel="stylesheet" href="../../../static/plugin/mad/css/plugins/nice-select.css"/>
+          {/*<link rel="stylesheet" href="../../../static/plugin/mad/css/plugins/nice-select.css"/>*/}
           <link rel="stylesheet" href="../../../static/plugin/mad/css/plugins/jqueryui.min.css"/>
           <link rel="stylesheet" href="../../../static/plugin/mad/css/style.css"/>
 
@@ -45,18 +46,18 @@ export default function RootLayout({
           {children}
       </NextIntlClientProvider>
 
-        <Script src="../../../static/plugin/mad/js/vendor/modernizr-3.6.0.min.js"></Script>
-        <Script src="../../../static/plugin/mad/js/vendor/jquery-3.6.0.min.js"></Script>
-        <Script src="../../../static/plugin/mad/js/vendor/bootstrap.bundle.min.js"></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/slick.min.js"></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/countdown.min.js"></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/nice-select.min.js"></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/jqueryui.min.js"></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/image-zoom.min.js"></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/imagesloaded.pkgd.min.js"></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/ajaxchimp.js"></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/ajax-mail.js"></Script>
-        <Script src="../../../static/plugin/mad/js/main.js"></Script>
+        <Script src="../../../static/plugin/mad/js/vendor/modernizr-3.6.0.min.js" async></Script>
+        <Script src="../../../static/plugin/mad/js/vendor/jquery-3.6.0.min.js" async></Script>
+        <Script src="../../../static/plugin/mad/js/vendor/bootstrap.bundle.min.js" async></Script>
+        <Script src="../../../static/plugin/mad/js/plugins/slick.min.js" async></Script>
+        <Script src="../../../static/plugin/mad/js/plugins/countdown.min.js" async></Script>
+        {/*<Script src="../../../static/plugin/mad/js/plugins/nice-select.min.js"></Script>*/}
+        <Script src="../../../static/plugin/mad/js/plugins/jqueryui.min.js" async></Script>
+        <Script src="../../../static/plugin/mad/js/plugins/image-zoom.min.js" async></Script>
+        <Script src="../../../static/plugin/mad/js/plugins/imagesloaded.pkgd.min.js" async></Script>
+        <Script src="../../../static/plugin/mad/js/plugins/ajaxchimp.js" async></Script>
+        <Script src="../../../static/plugin/mad/js/plugins/ajax-mail.js" async></Script>
+        <Script src="../../../static/plugin/mad/js/main.js" async></Script>
       </body>
     </html>
   );

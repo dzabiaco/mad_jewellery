@@ -15,9 +15,13 @@ export default function LocaleSwitcher(){
         });
     }
 
-    return (<select name="" id="" defaultValue={localActive} disabled={isPending} className="px-2" onChange={onSelectChange}>
-        <option value="ro">RO</option>
-        <option value="en">EN</option>
-        <option value="ru">RU</option>
-    </select>);
+    return (
+        <div>
+        <select name="" id="" defaultValue={localActive} disabled={isPending} className="px-2" onChange={onSelectChange}>
+            <option value="ro">RO</option>
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+        </select>
+        </div>
+    );
 }

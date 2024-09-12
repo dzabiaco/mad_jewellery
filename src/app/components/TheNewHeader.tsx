@@ -6,7 +6,7 @@ import {useLocale} from "use-intl";
 
 export default function TheNewHeader(){
     const locale = useLocale();
-    const getLocalePath = (path) => {
+    const getLocalePath = (path:string) => {
         // Check if the path already includes the locale
         if (!path.startsWith(`/${locale}`)) {
             return `/${locale}${path}`;

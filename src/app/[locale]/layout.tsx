@@ -24,40 +24,13 @@ export default function RootLayout({
 
     <html lang={locale}>
       <head>
-        {/*<link rel="stylesheet" href="../../../static/plugin/bootstrap.min.css"/>*/}
-        {/*<link rel="stylesheet" href="../../../static/plugin/style.css"/>*/}
-        {/*<link rel="stylesheet" href="../../../static/plugin/themify-icons.css"/>*/}
-        {/*<link rel="stylesheet" href="../../../static/plugin/owl.carousel.min.css"/>*/}
-        {/*<link rel="stylesheet" href="../../../static/plugin/magnific-popup.css"/>*/}
-        {/*<link rel="stylesheet" href="../../../static/plugin/master.css"/>*/}
           <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900" rel="stylesheet"/>
-          <link rel="stylesheet" href="../../../static/plugin/mad/css/vendor/bootstrap.min.css"/>
-          <link rel="stylesheet" href="../../../static/plugin/mad/css/vendor/pe-icon-7-stroke.css"/>
-          <link rel="stylesheet" href="../../../static/plugin/mad/css/vendor/font-awesome.min.css"/>
-          <link rel="stylesheet" href="../../../static/plugin/mad/css/plugins/slick.min.css"/>
-          <link rel="stylesheet" href="../../../static/plugin/mad/css/plugins/animate.css"/>
-          {/*<link rel="stylesheet" href="../../../static/plugin/mad/css/plugins/nice-select.css"/>*/}
-          <link rel="stylesheet" href="../../../static/plugin/mad/css/plugins/jqueryui.min.css"/>
-          <link rel="stylesheet" href="../../../static/plugin/mad/css/style.css"/>
-
+          <link rel="stylesheet" href="../../../static/css/bootstrap.min.css"/>
       </head>
       <body className={inter.className}>
       <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
       </NextIntlClientProvider>
-
-        <Script src="../../../static/plugin/mad/js/vendor/modernizr-3.6.0.min.js" async></Script>
-        <Script src="../../../static/plugin/mad/js/vendor/jquery-3.6.0.min.js" async></Script>
-        <Script src="../../../static/plugin/mad/js/vendor/bootstrap.bundle.min.js" async></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/slick.min.js" async></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/countdown.min.js" async></Script>
-        {/*<Script src="../../../static/plugin/mad/js/plugins/nice-select.min.js"></Script>*/}
-        <Script src="../../../static/plugin/mad/js/plugins/jqueryui.min.js" async></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/image-zoom.min.js" async></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/imagesloaded.pkgd.min.js" async></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/ajaxchimp.js" async></Script>
-        <Script src="../../../static/plugin/mad/js/plugins/ajax-mail.js" async></Script>
-        <Script src="../../../static/plugin/mad/js/main.js" async></Script>
       </body>
     </html>
   );

@@ -1,105 +1,79 @@
+import {faEnvelope, faHeart, faPhone} from "@fortawesome/free-solid-svg-icons";
+import {faFacebook, faInstagram, faTwitter, faYoutube} from "@fortawesome/free-brands-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 export default function Footer(){
     return (
-        <footer className="footer-widget-area">
-            <div className="footer-top section-padding">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-3 col-md-6">
-                            <div className="widget-item">
-                                <div className="widget-title">
-                                    <div className="widget-logo">
-                                        <a href="index.html">
-                                            <img src="../../../static/images/logo/logo.png" alt="brand logo"/>
-                                        </a>
+        <>
+            <div className="container mx-auto">
+                <footer className="footer-widget-area">
+                    <div className="footer-top py-10">
+                        <div className="container mx-auto">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div className="flex flex-col items-center lg:items-start">
+                                    <div className="mb-4">
+                                        <Link href="/">
+                                            <img src="../../../static/images/main-logo.png" alt="Lux in Mobil Logo" className="w-24 h-20" />
+                                        </Link>
                                     </div>
                                 </div>
-                                <div className="widget-body">
-                                    <p>We are a team of designers and developers that create high quality wordpress,
-                                        shopify, Opencart </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6">
-                            <div className="widget-item">
-                                <h6 className="widget-title">Contact Us</h6>
-                                <div className="widget-body">
-                                    <address className="contact-block">
-                                        <ul>
-                                            <li><i className="pe-7s-home"></i> 4710-4890 Breckinridge USA</li>
-                                            <li><i className="pe-7s-mail"></i> <a
-                                                href="mailto:demo@plazathemes.com">demo@yourdomain.com </a></li>
-                                            <li><i className="pe-7s-call"></i> <a href="tel:(012)800456789987">(012) 800
-                                                456 789-987</a></li>
-                                        </ul>
+                                <div className="text-center lg:text-left">
+                                    <h6 className="text-lg font-semibold mb-3">Contact Us</h6>
+                                    <address className="space-y-2">
+                                        <div className="flex items-center justify-center lg:justify-start">
+                                            <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 text-gray-500 hover:text-gray-700" />
+                                            <Link href="mailto:luxinmobel@gmail.com" className="ml-2 text-black hover:text-gray-700">luxinmobel@gmail.com</Link>
+                                        </div>
+                                        <div className="flex items-center justify-center lg:justify-start">
+                                            <FontAwesomeIcon icon={faPhone} className="w-5 h-5 text-gray-500 hover:text-gray-700" />
+                                            <Link href="tel:+37368287981" className="ml-2 text-black hover:text-gray-700">+373 68 287 981</Link>
+                                        </div>
                                     </address>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6">
-                            <div className="widget-item">
-                                <h6 className="widget-title">Information</h6>
-                                <div className="widget-body">
-                                    <ul className="info-list">
-                                        <li><a href="#">about us</a></li>
-                                        <li><a href="#">Delivery Information</a></li>
-                                        <li><a href="#">private policy</a></li>
-                                        <li><a href="#">Terms & Conditions</a></li>
-                                        <li><a href="#">contact us</a></li>
-                                        <li><a href="#">site map</a></li>
+                                <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+                                    <h6 className="text-lg font-semibold mb-3">Information</h6>
+                                    <ul className="space-y-2">
+                                        <li>
+                                            <Link href="#" className="text-gray-500 hover:text-gray-700">Privacy Policy</Link>
+                                        </li>
+                                        <li>
+                                            <Link href="#" className="text-gray-500 hover:text-gray-700">Terms & Conditions</Link>
+                                        </li>
                                     </ul>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6">
-                            <div className="widget-item">
-                                <h6 className="widget-title">Follow Us</h6>
-                                <div className="widget-body social-link">
-                                    <a href="#"><i className="fa fa-facebook"></i></a>
-                                    <a href="#"><i className="fa fa-twitter"></i></a>
-                                    <a href="#"><i className="fa fa-instagram"></i></a>
-                                    <a href="#"><i className="fa fa-youtube"></i></a>
+                                <div className="text-center lg:text-left">
+                                    <h6 className="text-lg font-semibold mb-3">Follow Us</h6>
+                                    <div className="flex justify-center items-center space-x-4">
+                                        <Link href="#">
+                                            <FontAwesomeIcon icon={faFacebook} className="w-6 h-6 text-gray-500 hover:text-gray-700 hover:scale-110 transition-transform duration-200" />
+                                        </Link>
+                                        <Link href="#">
+                                            <FontAwesomeIcon icon={faTwitter} className="w-6 h-6 text-gray-500 hover:text-gray-700 hover:scale-110 transition-transform duration-200" />
+                                        </Link>
+                                        <Link href="#">
+                                            <FontAwesomeIcon icon={faInstagram} className="w-6 h-6 text-gray-500 hover:text-gray-700 hover:scale-110 transition-transform duration-200" />
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="row align-items-center mt-20">
-                        <div className="col-md-6">
-                            <div className="newsletter-wrapper">
-                                <h6 className="widget-title-text">Signup for newsletter</h6>
-                                <form className="newsletter-inner" id="mc-form">
-                                    <input type="email" className="news-field" id="mc-email" autoComplete="off"
-                                           placeholder="Enter your email address"/>
-                                        <button className="news-btn" id="mc-submit">Subscribe</button>
-                                </form>
-                                <div className="mailchimp-alerts">
-                                    <div className="mailchimp-submitting"></div>
-                                    <div className="mailchimp-success"></div>
-                                    <div className="mailchimp-error"></div>
-                                </div>
+                </footer>
+            </div>
 
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="footer-payment">
-                                <img src="../../../static/images/payment.png" alt="payment method"/>
-                            </div>
-                        </div>
-                    </div>
+            <div className="footer-bottom bg-yellow-400 flex items-center justify-center h-16">
+                <div className="container mx-auto flex items-center justify-center">
+                    <p className="text-center mb-0">
+                        &copy; {new Date().getFullYear()} <b className="ml-1 mr-1">Lux in Mobil</b> Made with
+                        <FontAwesomeIcon
+                            icon={faHeart}
+                            className="w-5 h-5 text-red-500 mx-2 hover:scale-110 transition-transform duration-200"
+                        />
+                        by <a href="/" className="ml-1"><b>MoonLeaf</b></a>
+                    </p>
                 </div>
             </div>
-            <div className="footer-bottom">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <div className="copyright-text text-center">
-                                <p>&copy; 2022 <b>Corano</b> Made with <i className="fa fa-heart text-danger"></i> by <a
-                                    href="/"><b>MoonLeaf</b></a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        </>
     );
 }

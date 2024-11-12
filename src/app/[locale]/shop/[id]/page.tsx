@@ -1,6 +1,6 @@
 import TheNewHeader from "@/app/components/TheNewHeader";
 import Footer from "@/app/components/Footer";
-import RelatedProducts from "@/app/components/RelatedProducts";
+// import RelatedProducts from "@/app/components/RelatedProducts";
 
 
 export default function ProductPage(){
@@ -228,7 +228,7 @@ export default function ProductPage(){
                     </div>
                 </div>
 
-                <RelatedProducts/>
+                {/*<RelatedProducts/>*/}
             </main>
             <Footer/>
         </>

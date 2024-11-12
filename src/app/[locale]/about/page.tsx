@@ -1,5 +1,5 @@
 import TheNewHeader from "@/app/components/TheNewHeader";
-import Testimonials from "@/app/components/Testimonials";
+// import Testimonials from "@/app/components/Testimonials";
 import Footer from "@/app/components/Footer";
 
 
@@ -91,7 +91,7 @@ export default function AboutPage(){
                 </div>
             </div>
 
-            <Testimonials/>
+            {/*<Testimonials/>*/}
 
             <Footer/>
         </>

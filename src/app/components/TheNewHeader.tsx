@@ -1,274 +1,164 @@
 "use client";
+import classes from  './TheNewHeader.module.css';
 import Link from "next/link";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useLocale} from "use-intl";
 import LocaleSwitcher from "@/app/components/LocaleSwitcher";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBars, faChevronDown, faEnvelope, faGlobe, faMoon, faPhone} from "@fortawesome/free-solid-svg-icons";
+import {usePathname, useRouter} from "next/navigation";
 
 
-export default function TheNewHeader(){
+
+export default function TheNewHeader() {
     const locale = useLocale();
-    const getLocalePath = (path:string) => {
+    const router = useRouter();
+    const pathname = usePathname();
+
+    const getLocalePath = (path: string) => {
         // Check if the path already includes the locale
         if (!path.startsWith(`/${locale}`)) {
             return `/${locale}${path}`;
         }
         return path;
     };
+
+    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    // Function to check if the link is active
+    const isActive = (path: string) => {
+        const fullPath = getLocalePath(path);
+        const normalizedPathname = pathname.endsWith('/') ? pathname : `${pathname}/`;
+        const normalizedFullPath = fullPath.endsWith('/') ? fullPath : `${fullPath}/`;
+        return normalizedPathname === normalizedFullPath;
+    };
+
     return (
-        <header className="header-area header-wide bg-gray">
-            <div className="main-header d-none d-lg-block">
-                <div className="header-top bdr-bottom">
-                    <div className="container">
-                        <div className="row align-items-center">
-                            <div className="col-lg-6">
-                                <div className="welcome-message">
-                                    <p>Welcome to Corano Jewelry online store</p>
-                                </div>
+        <header className="mb-[75px]">
+            <div className="bg-white fixed top-0 left-0 right-0 shadow-md z-50">
+                <div className="container-fluid mx-auto flex justify-between items-center py-2">
+                    {/* Left Column - Logo */}
+                    <div className="hidden lg:flex">
+                        <Link href="/" legacyBehavior>
+                            <div className="flex align-items-center">
+                                <img src="../../../static/images/main-logo.png" className="w-[90px] h-[70px]" alt=""/>
+                                <h1 className="ml-2 mt-2">Lux in Möbel</h1>
                             </div>
-                            <div className="col-lg-6 text-right">
-                                <div className="header-top-settings">
-                                    <ul className="nav align-items-center justify-content-end">
-                                        {/*<li className="curreny-wrap">*/}
-                                        {/*    $ Currency*/}
-                                        {/*    <i className="fa fa-angle-down"></i>*/}
-                                        {/*    <ul className="dropdown-list curreny-list">*/}
-                                        {/*        <li><a href="#">$ USD</a></li>*/}
-                                        {/*        <li><a href="#">€ EURO</a></li>*/}
-                                        {/*    </ul>*/}
-                                        {/*</li>*/}
-                                        {/*<li className="language" style={{zIndex: "9999!important"}}>*/}
-                                        {/*    <img src="../../../static/images/icons/en.png" alt="flag"/> English*/}
-                                        {/*        <i className="fa fa-angle-down"></i>*/}
-                                        {/*        <ul className="dropdown-list">*/}
-                                        {/*            <li><a href="#">*/}
-                                        {/*                <img src="a../../../static/images/icons/en.png" alt="flag"/> english</a>*/}
-                                        {/*            </li>*/}
-                                        {/*            <li>*/}
-                                        {/*                <a href="#"><img src="../../../static/images/icons/fr.png" alt="flag"/> french</a>*/}
-                                        {/*            </li>*/}
-                                        {/*            <li>*/}
-                                        {/*                <a href="#"><img src="../../../static/images/icons/fr.png" alt="flag"/> french</a>*/}
-                                        {/*            </li>*/}
-                                        {/*        </ul>*/}
-                                        {/*</li>*/}
-                                        <LocaleSwitcher/>
-                                    </ul>
+                        </Link>
+                    </div>
+
+                    {/* Center Column - Main Navigation */}
+                    <nav className="hidden lg:flex justify-center items-center h-full" aria-label="Основная навигация">
+                        <ul className="flex justify-center items-center space-x-4 mb-0">
+                            <li>
+                                <Link href={getLocalePath("/")} className={`text-gray-500 hover:text-yellow-400 hover:no-underline active:text-yellow-400 no-underline ${isActive("/") ? "text-yellow-500" : ""}`}>
+                                    Home Furniture
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={getLocalePath('/business')} className={`text-gray-500 hover:text-yellow-400 hover:no-underline active:text-yellow-400 no-underline ${isActive("/business") ? "text-yellow-500" : ""}`}>
+                                    Business Furniture
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={getLocalePath('/interior')} className={`text-gray-500 hover:text-yellow-400 hover:no-underline active:text-yellow-400 no-underline ${isActive("/interior") ? "text-yellow-500" : ""}`}>
+                                    Interior Design
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={getLocalePath('/contacts')} className={`text-gray-500 hover:text-yellow-400 hover:no-underline active:text-yellow-400 no-underline ${isActive("/contacts") ? "text-yellow-500" : ""}`}>
+                                    Contacts
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    {/* Right Column - Contact and Language Switcher */}
+                    <div className="hidden lg:flex items-center space-x-4">
+                        <div className="flex space-x-4">
+                            <Link href="tel:37368159759" legacyBehavior>
+                                <div className="flex items-center space-x-2">
+                                    <FontAwesomeIcon icon={faPhone} className="w-5 h-5 text-gray-500 hover:text-gray-700" />
+                                    <Link href="tel:+37368287981" className="text-black hover:text-gray-700 hover:no-underline">+373 68 287 981</Link>
                                 </div>
-                            </div>
+                            </Link>
+                            <Link href="mailto:hello@amatto.md" legacyBehavior>
+                                <div className="flex items-center space-x-2">
+                                    <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 text-gray-500 hover:text-gray-700" />
+                                    <Link href="mailto:luxinmobel@gmail.com" className="text-black hover:text-gray-700 hover:no-underline">luxinmobel@gmail.com</Link>
+                                </div>
+                            </Link>
                         </div>
+                    </div>
+
+                    {/* Mobile Logo and Menu Button */}
+                    <div className="lg:hidden flex items-center justify-between w-full px-4">
+                        <Link href="/" legacyBehavior>
+                            <div className="block w-[138px]">
+                                <div className="flex align-items-center">
+                                    <img src="../../../static/images/main-logo.png" className="w-[90px] h-[70px]" alt=""/>
+                                </div>
+                            </div>
+                        </Link>
+                        <button onClick={toggleMobileMenu} className="text-gray-700 focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
-                <div className="header-main-area sticky" style={{zIndex:"9998!important"}}>
-                    <div className="container">
-                        <div className="row align-items-center position-relative">
-
-                            <div className="col-lg-2">
-                                <div className="logo">
-                                    <a href="index-2.html">
-                                        <img src="../../../static/images/logo/logo.png" alt="brand logo"/>
-                                    </a>
+                {/* Mobile Menu */}
+                {isMobileMenuOpen && (
+                    <nav className="lg:hidden bg-white shadow-md">
+                        <ul className="flex flex-col items-center space-y-4 py-4 text-dark">
+                            <li>
+                                <Link href={getLocalePath(`/`)} legacyBehavior>
+                                    <span onClick={() => setMobileMenuOpen(false)} className={`hover:text-gray-700 ${isActive("/") ? "bg-yellow-500" : ""}`}>
+                                        Home Furniture
+                                    </span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={getLocalePath(`/business`)} legacyBehavior>
+                                    <span onClick={() => setMobileMenuOpen(false)} className={`hover:text-gray-700 ${isActive("/business") ? "bg-yellow-500" : ""}`}>
+                                        Business Furniture
+                                    </span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={getLocalePath(`/interior`)} legacyBehavior>
+                                    <span onClick={() => setMobileMenuOpen(false)} className={`hover:text-gray-700 ${isActive("/interior") ? "bg-yellow-500" : ""}`}>
+                                        Interior Design
+                                    </span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={getLocalePath(`/contacts`)} legacyBehavior>
+                                    <span onClick={() => setMobileMenuOpen(false)} className={`hover:text-gray-700 ${isActive("/contacts") ? "bg-yellow-500" : ""}`}>
+                                        Contacts
+                                    </span>
+                                </Link>
+                            </li>
+                            <li>
+                                <div className="flex flex-col items-center space-y-2">
+                                    <Link href="tel:37368159759" legacyBehavior>
+                                        <span className="hover:text-gray-700">+373 68 159 759</span>
+                                    </Link>
+                                    <Link href="mailto:hello@amatto.md" legacyBehavior>
+                                        <span className="hover:text-gray-700">hello@amatto.md</span>
+                                    </Link>
+                                    <LocaleSwitcher />
                                 </div>
-                            </div>
-
-
-
-                            <div className="col-lg-6 position-static">
-                                <div className="main-menu-area">
-                                    <div className="main-menu">
-                                        <nav className="desktop-menu">
-                                            <ul>
-                                                <li className="active">
-                                                    <Link href="/">Home</Link>
-                                                </li>
-                                                <li className="position-static">
-                                                    <Link href={getLocalePath(`/about`)} locale={locale}>About Us</Link>
-                                                </li>
-                                                <li>
-                                                    <Link href={getLocalePath(`/shop`)}>Shop</Link>
-                                                </li>
-                                                <li>
-                                                    <Link href={getLocalePath(`/blog`)}>Blog</Link>
-                                                </li>
-                                                <li>
-                                                    <Link href={getLocalePath(`/contact-us`)}>Contact us</Link>
-                                                </li>
-                                            </ul>
-                                        </nav>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="col-lg-4">
-                                <div
-                                    className="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
-                                    <div className="header-search-container">
-                                        <button className="search-trigger d-xl-none d-lg-block"><i
-                                            className="pe-7s-search"></i></button>
-
-                                    </div>
-                                    <div className="header-configure-area">
-                                        <ul className="nav justify-content-end">
-                                            <li className="user-hover">
-                                                <a href="#">
-                                                    <i className="pe-7s-user"></i>
-                                                </a>
-                                                <ul className="dropdown-list">
-                                                    <li><a href="login-register.html">login</a></li>
-                                                    <li><a href="login-register.html">register</a></li>
-                                                    <li><a href="my-account.html">my account</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="wishlist.html">
-                                                    <i className="pe-7s-like"></i>
-                                                    <div className="notification">0</div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" className="minicart-btn">
-                                                    <i className="pe-7s-shopbag"></i>
-                                                    <div className="notification">2</div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-
+                            </li>
+                        </ul>
+                    </nav>
+                )}
             </div>
-
-            <div className="mobile-header d-lg-none d-md-block sticky">
-                <div className="container-fluid">
-                    <div className="row align-items-center">
-                        <div className="col-12">
-                            <div className="mobile-main-header">
-                                <div className="mobile-logo">
-                                    <a href="index.html">
-                                        <img src="assets/img/logo/logo.png" alt="Brand Logo"/>
-                                    </a>
-                                </div>
-                                <div className="mobile-menu-toggler">
-                                    <div className="mini-cart-wrap">
-                                        <a href="cart.html">
-                                            <i className="pe-7s-shopbag"></i>
-                                            <div className="notification">0</div>
-                                        </a>
-                                    </div>
-                                    <button className="mobile-menu-btn">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <aside className="off-canvas-wrapper">
-                <div className="off-canvas-overlay"></div>
-                <div className="off-canvas-inner-content">
-                    <div className="btn-close-off-canvas">
-                        <i className="pe-7s-close"></i>
-                    </div>
-
-                    <div className="off-canvas-inner">
-
-                        {/*<div className="search-box-offcanvas">*/}
-                        {/*    <form>*/}
-                        {/*        <input type="text" placeholder="Search Here..."/>*/}
-                        {/*            <button className="search-btn"><i className="pe-7s-search"></i></button>*/}
-                        {/*    </form>*/}
-                        {/*</div>*/}
-
-                        <div className="mobile-navigation">
-
-                            <nav>
-                                <ul className="mobile-menu">
-                                    <li className="menu-item-has-children">
-                                        <Link href="/">Home</Link>
-                                    </li>
-                                    <li className="menu-item-has-children">
-                                        <Link href={getLocalePath(`/about`)}>About us</Link>
-                                    </li>
-                                    <li className="menu-item-has-children ">
-                                        <Link href={getLocalePath(`/shop`)}>shop</Link>
-                                    </li>
-                                    <li className="menu-item-has-children ">
-                                        <Link href={getLocalePath(`/blog`)}>Blog</Link>
-                                    </li>
-                                    <li>
-                                        <Link href={getLocalePath(`/contact-us`)}>Contact us</Link>
-                                    </li>
-                                </ul>
-                            </nav>
-
-                        </div>
-
-                        <div className="mobile-settings">
-                            <ul className="nav">
-                                {/*<li>*/}
-                                {/*    <div className="dropdown mobile-top-dropdown">*/}
-                                {/*        <a href="#" className="dropdown-toggle" id="currency" data-bs-toggle="dropdown"*/}
-                                {/*           aria-haspopup="true" aria-expanded="false">*/}
-                                {/*            Currency*/}
-                                {/*            <i className="fa fa-angle-down"></i>*/}
-                                {/*        </a>*/}
-                                {/*        <div className="dropdown-menu" aria-labelledby="currency">*/}
-                                {/*            <a className="dropdown-item" href="#">$ USD</a>*/}
-                                {/*            <a className="dropdown-item" href="#">$ EURO</a>*/}
-                                {/*        </div>*/}
-                                {/*    </div>*/}
-                                {/*</li>*/}
-                                <li>
-                                    <div className="dropdown mobile-top-dropdown">
-                                        <a href="#" className="dropdown-toggle" id="myaccount" data-bs-toggle="dropdown"
-                                           aria-haspopup="true" aria-expanded="false">
-                                            My Account
-                                            <i className="fa fa-angle-down"></i>
-                                        </a>
-                                        <div className="dropdown-menu" aria-labelledby="myaccount">
-                                            <a className="dropdown-item" href="my-account.html">my account</a>
-                                            <a className="dropdown-item" href="login-register.html"> login</a>
-                                            <a className="dropdown-item" href="login-register.html">register</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className="offcanvas-widget-area">
-                            <div className="off-canvas-contact-widget">
-                                <ul>
-                                    <li><i className="fa fa-mobile"></i>
-                                        <a href="#">0123456789</a>
-                                    </li>
-                                    <li><i className="fa fa-envelope-o"></i>
-                                        <a href="#">info@yourdomain.com</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="off-canvas-social-widget">
-                                <a href="#"><i className="fa fa-facebook"></i></a>
-                                <a href="#"><i className="fa fa-twitter"></i></a>
-                                <a href="#"><i className="fa fa-pinterest-p"></i></a>
-                                <a href="#"><i className="fa fa-linkedin"></i></a>
-                                <a href="#"><i className="fa fa-youtube-play"></i></a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </aside>
         </header>
     );
 }
